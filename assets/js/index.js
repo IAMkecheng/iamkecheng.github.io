@@ -31,7 +31,12 @@ function loadPapers() {
 		const venueTypeText = paper.venueType === '期刊' ? '论文' : '论文';
 		const titleText = `${paper.year}年发表${getVenueDescription(paper)}${venueTypeText} (${paper.venueLevel}，${paper.authorPosition})`;
 		const span = document.createElement('span');
-		span.textContent = titleText;
+		// 对 CCF A类会议 或 CCF A类期刊 进行加粗
+		let formattedText = titleText;
+		if (paper.venueLevel.includes('CCF A类')) {
+			formattedText = titleText.replace(/(CCF A类(?:会议|期刊))/g, '<b>$1</b>');
+		}
+		span.innerHTML = formattedText;
 		h3.appendChild(span);
 
 		// 如果有在线示例链接，添加链接
