@@ -107,7 +107,6 @@
                     }
                 }
             </style>
-            <!-- 左侧固定开关，记得及时删除这段代码 End-->
 
             <!-- 个人肖像 -->
             <section class="me">
@@ -152,8 +151,20 @@
                         <span>山东大学</span>
                     </li>
                     <li>
-                        <label>生源地</label>
-                        <span>山东省青岛市</span>
+                        <label>工作单位</label>
+                        <span>中国人民大学</span>
+                    </li>
+                    <li>
+                        <label>职业</label>
+                        <span>博士后研究员</span>
+                    </li>
+                    <li>
+                        <label>导师</label>
+                        <span><a href="https://www.yunhaiwang.net/" target="_blank">汪云海</a></span>
+                    </li>
+                    <li>
+                        <label>工作地点</label>
+                        <span>北京市海淀区</span>
                     </li>
 
                 </ul>
@@ -189,20 +200,22 @@
                 <hr />
                 <ul>
                     <li>
-                        <time>时间：<mark> 2013.9-2017.7</mark></time>
+                        <time>时间：<mark> 2017.9-2023.12</mark></time>
                         <h3>
-                            <p>山东大学软件学院 —— 本科</p>
-                            <p>专业：软件工程</p>
+                            <p>山东大学计算机科学与技术学院</p>
+                            <p>硕博连读</p>
+                            <p>专业：计算机科学与技术</p>
                         </h3>
-                        <p>专业排名：前 10%，获得保研资格</p>
                     </li>
                     <br>
                     <li>
-                        <time>时间：<mark> 2017.9-至今</mark></time>
+                        <time>时间：<mark> 2013.9-2017.7</mark></time>
                         <h3>
-                            <p>山东大学计算机科学与技术学院 —— 硕博连读</p>
-                            <p>专业：计算机科学与技术</p>
+                            <p>山东大学软件学院</p>
+                            <p>本科</p>
+                            <p>专业：软件工程</p>
                         </h3>
+                        <p>专业排名：前 10%，获得保研资格</p>
                     </li>
                 </ul>
             </section>
@@ -214,11 +227,11 @@
                 </h2>
                 <hr />
                 <ol>
-                    <li>2024年入职中国人民大学先锋博士后</li>
+                    <li>2024年入职<b>中国人民大学先锋博士后</b></li>
                     <li>2023年博士毕业于山东大学计算机学院</li>
                     <li>2021年学业一等奖学金、乾云社会奖学金、研究生优秀学术成果奖、优秀研究生</li>
                     <li>2017-2020年学业二等奖学金</li>
-                    <li>2017年保研，选择留在山东大学汪云海老师团队</li>
+                    <li>2017年<b>保研</b>留在山东大学汪云海老师团队</li>
                     <li>2016年山东大学二等奖学金、美国大学生数学建模竞赛二等奖</li>
                     <li>2015年山东大学二等奖学金</li>
                 </ol>
@@ -252,188 +265,42 @@
                 <h2 style="margin-top: 5px;">
                     博士论文题目: <span style="color: rgb(39, 0, 139);">面向分类数据可视化的颜色映射自动生成</span>
                 </h2>
-            </section>
-            <!-- 工作经历 -->
-
-            <!-- <section class="project info-unit">
-                <h2>
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>工作经历
+                <h2 style="margin-top: 5px;">
+                    青年基金项目: <span style="color: rgb(39, 0, 139);">面向数据可视分析的色彩计算理论与方法研究</span>
                 </h2>
-                <hr />
-                <ul>
-                    <li>
-                        <h3>
-                            <span>【实习】：杭州代码狗科技有限公司</span>
-                            <time>2019.11-2020.01</time>
-                        </h3>
-                        <ul class="info-content">
-                            <li><i class="fa fa-users" aria-hidden="true"></i>
-                                [工作岗位]：Java开发实习生
-                            </li>
-                            <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [参与项目]：API管理中心
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、制作代码生成器，根据数据库表格生成相应格式的Service、DAO层代码<br />
-                                    &emsp;&emsp;2、根据ElasticSearch提供的Java API 生成统计报表<br />
-                                    &emsp;&emsp;3、使用预排序遍历树算法对于多层级问题优化<br />
-                                    &emsp;&emsp;4、结合代码开发规范、单元测试修改代码BUG
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section> -->
+            </section>
 
             <!-- 项目经验 -->
             <section class="project info-unit">
                 <h2>
-                    <i class="fa fa-terminal" aria-hidden="true"></i>科研经历
+                    <i class="fa fa-terminal" aria-hidden="true"></i>论文成果
+                    <span class="toggle-papers" id="toggle-papers-btn" onclick="togglePapers()">
+                        <i class="fa fa-chevron-up" id="toggle-papers-icon"></i>
+                    </span>
                 </h2>
                 <hr />
-                <ul>
-                    <li>
-                        <h3>
-                            <span>2020年发表可视化领域顶级期刊TVCG论文 (SCI 1区，一作)</span>
-                            <span class="link">
-                                <a href="https://iamkecheng.github.io/palettailor/" target="_blank">在线着色网站</a>
-                            </span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1109/TVCG.2020.3030406" target="_blank"><b>Palettailor:
-                                        Discriminable Colorization for Categorical Data.</b></a> IEEE Transactions on
-                                Visualization and Computer Graphics (Proc. InfoVis 2020), vol. 27, no. 2, pp. 475-484,
-                                Feb. 2021, doi: 10.1109/TVCG.2020.3030406.</li>
-                            <li>技术栈：Javascript，D3，jQuery</li>
-                            <li>
-                                提出了一种为不同可视化图表着色的通用方法，适用于多类散点图、折线图和直方图。现有的解决方案将颜色生成独立于颜色分配之外，我们的方法通过将数据的空间分布考虑在内，生成符合数据特征的调色板，提升了类间的区分度。
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2023年发表人机交互领域顶级会议CHI论文 (CCF A类会议，一作)</span>
-                            <span class="link">
-                                <a href="https://iamkecheng.github.io/palettailor/highlighting/demo/"
-                                    target="_blank">在线示例网站</a>
-                            </span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1145/3544548.3580734" target="_blank"><b>Interactive
-                                        Context-preserving Color Highlighting for Multiclass Scatterplots.</b></a>
-                                Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems. 2023:
-                                1-15, doi: 10.1145/3544548.3580734.</li>
-                            <li>技术栈：Javascript，D3，jQuery</li>
-                            <li>
-                                在Palettailor
-                                的基础上，我们进一步提出了适用于交互式操作的保持上下文信息的自动化调色板生成方法。该方法可以自动为给定数据生成两套具有高区分度的调色板，在交互过程中实时组合颜色以高亮不同部分，并保证剩余部分的区分度，在交互过程中为用户提供了更多操作指引，增强了数据探索效率。适用于多类散点图、折线图和直方图。
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2024年发表可视化领域顶级期刊TVCG论文 (SCI 1区，一作)</span>
-                            <span class="link">
-                                <a href="https://anon-link.github.io/transparency/" target="_blank">在线示例网站</a>
-                            </span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="#" target="_blank"><b>Color-Name Aware Optimization to Enhance the Perception
-                                        of Transparent Overlapped Charts.</b></a>
-                                IEEE Transactions on Visualization and Computer Graphics, to appear , 2024</li>
-                            <li>技术栈：Javascript，D3，jQuery</li>
-                            <li>
-                                提出了适用于半透明渲染的颜色分配及透明度自动优化算法，可有效减少由于透明度混合产生的新颜色导致的数据误解与歧义
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2019年发表Visual Informatics论文 (SCI，一作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1016/j.visinf.2019.10.001" target="_blank"><b>A unified
-                                        framework for exploring time-varying volumetric data based on block
-                                        correspondence.</b></a> Visual Informatics. 2019, 3(4): 157-165, doi:
-                                10.1016/j.visinf.2019.10.001.</li>
-                            <li>技术栈：实现了一整套时序体数据着色系统，包含系统界面、交互、计算及渲染模块，其中界面及交互使用Qt，核心计算使用Cuda 加速，渲染使用OpenGL
-                                及Cg，可实现高质量的体绘制效果。</li>
-                            <li>
-                                提出了适用于大规模时序体数据的统一框架，包含了关键帧提取、特征追踪和绘制参数自动生成等功能，核心是利用了GPU加速的BlockMatch算法，这是扩展自图形领域著名的PatchMatch算法，通过计算不同帧数据间密集的对应关系，实现细粒度的可视化参数自动生成。
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2022年发表Computational Visual Media论文 (SCI，二作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1007/s41095-022-0304-6" target="_blank"><b>Correlation-aware
-                                        Probabilistic Data Summarization for Large-scale Multi-block Scientific Data
-                                        Visualization.</b></a> Computational Visual Media, 2023, 9(3): 513-529, doi:
-                                10.1007/s41095-022-0304-6.</li>
-                            <li>技术栈：C++</li>
-                            <li>
-                                大规模科学数据由于存储规模较大，通常需要进行数据的轻量化以获得原始数据的参数表达。现有的方法基于统计分布模型实现了一到两个数量级的数据约减，但由于没有考虑数据块间的相关性，导致数据重建效果不连续。我们使用Copula函数改善了现有算法，显著增强了在相同参数设置下的重建效果，并适用于多块拼接的网格结构。
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2025年发表人机交互领域顶级会议CHI论文 (CCF A类会议，四作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1145/3706598.3714070" target="_blank"><b>Seeing Through the
-                                        Overlap: The Impact of Color and
-                                        Opacity on Depth Order Perception in Visualization.</b></a>
-                                CHI '25: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems
-                                Article No.: 1172, Pages 1 - 14
-                                https://doi.org/10.1145/3706598.3714070</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2025年发表可视化领域顶级期刊TVCG论文 (SCI 1区，四作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1109/TVCG.2024.3495695"
-                                    target="_blank"><b>Visualization-Driven Illumination
-                                        for Density
-                                        Plots.</b></a>
-                                IEEE Transactions on Visualization and Computer Graphics, vol. 31, no. 2, pp. 1631-1644,
-                                Feb. 2025, doi: 10.1109/TVCG.2024.3495695.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2019年发表国内可视化领域顶级会议ChinaVis论文 (SCI，三作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1007/s12650-020-00635-0" target="_blank"><b>VEGA: visual
-                                        comparison of phylogenetic trees for evolutionary genome analysis.</b></a>
-                                Journal of Visualization, 2020, 23(3): 523-537, doi: 10.1007/s12650-020-00635-0.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3>
-                            <span>2017年发表可视化领域顶级期刊TVCG论文 (SCI 1区，四作)</span>
-                        </h3>
-                        <ul class="info-content">
-                            <li><a href="https://doi.org/10.1109/TVCG.2017.2745919" target="_blank"><b>Revisiting Stress
-                                        Majorization as a Unified Framework for Interactive Constrained Graph
-                                        Visualization.</b></a> IEEE Transactions on Visualization and Computer Graphics
-                                (Proc. InfoVis 2017), vol. 24, no. 1, pp. 489-499, Jan. 2018, doi:
-                                10.1109/TVCG.2017.2745919.</li>
-                        </ul>
-                    </li>
-
-                </ul>
+                <div id="papers-container" class="papers-container">
+                    <ul id="papers-list">
+                        <!-- 论文列表将通过 JavaScript 动态生成 -->
+                    </ul>
+                </div>
             </section>
 
-            <section class="work info-unit">
+            <section class="project info-unit">
+                <h2>
+                    <i class="fa fa-terminal" aria-hidden="true"></i>项目经历
+                    <span class="toggle-projects" id="toggle-projects-btn" onclick="toggleProjects()">
+                        <i class="fa fa-chevron-up" id="toggle-projects-icon"></i>
+                    </span>
+                </h2>
+                <hr />
+                <div id="projects-container" class="projects-container">
+                    <ul id="projects-list">
+                        <!-- 项目列表将通过 JavaScript 动态生成 -->
+                    </ul>
+                </div>
+            </section>
+            <!-- <section class="work info-unit">
                 <h2>
                     <i class="fa fa-pencil" aria-hidden="true"></i>自我评价
                 </h2>
@@ -442,7 +309,7 @@
                     自2015年九月开始在山东大学交叉研究中心汪云海老师的课题组做科研助手，并在获得保研资格后选择<a href="https://www.yunhaiwang.net/index-cn.html"
                         target="_blank">汪云海</a>老师作为研究生乃至博士阶段的导师，这段科研经历极大的丰富了我的知识储备。我的研究领域包含了可视化中主要的两个方向：科学可视化和信息可视化，目前主要研究的是信息可视化中颜色映射的自动生成，同时关注大规模科学数据的转换函数自动生成及轻量化方法。在国际顶级会议上做过多次论文报告，并积极参与国内相关学术会议，对可视化领域的发展动态有较全面的了解。
                 </p>
-            </section>
+            </section> -->
 
 
 
@@ -467,6 +334,8 @@
         </ul>
     </aside> -->
 
+    <script src="./papers.js" type="text/javascript"></script>
+    <script src="./projects.js" type="text/javascript"></script>
     <script src="./assets/js/index.js" type="text/javascript"></script>
 
 </body>
