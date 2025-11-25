@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AAMNE 投资数据可视化</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 顶部控制面板 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label>可视化模式</label>
+                <select id="viewMode">
+                    <option value="single">单时间点</option>
+                    <option value="compare">双时间点对比</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>视图层级</label>
+                <select id="viewLevel">
+                    <option value="investor">投资国</option>
+                    <option value="destination">目的地国</option>
+                    <option value="industry">行业</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>时间1</label>
+                <select id="year1">
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <div class="control-group" id="countrySelectGroup">
+                <label>选择国家</label>
+                <select id="countrySelect">
+                    <option value="">全部</option>
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <div class="control-group" id="industrySelectGroup" style="display: none;">
+                <label>选择行业</label>
+                <select id="industrySelect">
+                    <option value="">全部</option>
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <div class="control-group" id="year2Group" style="display: none;">
+                <label>对比时间</label>
+                <select id="year2">
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <div class="control-group" id="country2SelectGroup" style="display: none;">
+                <label>对比国家</label>
+                <select id="country2Select">
+                    <option value="">全部</option>
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <div class="control-group" id="industry2SelectGroup" style="display: none;">
+                <label>选择行业2</label>
+                <select id="industry2Select">
+                    <option value="">全部</option>
+                    <!-- 动态生成 -->
+                </select>
+            </div>
+
+            <button id="resetBtn" class="btn-reset">重置视图</button>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <!-- 左侧列 -->
+            <div class="left-column">
+                <!-- 单时间点模式：第一行：整体视图、投资分布 -->
+                <div class="top-charts-row">
+                    <div class="chart-container chart-50">
+                        <div class="chart-title" id="statChartTitle">整体视图</div>
+                        <div id="statChart" class="chart"></div>
+                    </div>
+
+                    <div class="chart-container chart-50">
+                        <div class="chart-header">
+                            <div class="chart-title" id="mainChartTitle">投资分布</div>
+                            <div class="chart-type-selector">
+                                <label>图表类型</label>
+                                <select id="chartType">
+                                    <option value="bar">柱状图</option>
+                                    <option value="pie">饼图</option>
+                                    <option value="map">地图</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="mainChart" class="chart"></div>
+                    </div>
+                </div>
+
+                <!-- 单时间点模式：第二行：投资流向和投资关系网络 -->
+                <div class="middle-charts-row">
+                    <div class="chart-container chart-50">
+                        <div class="chart-title" id="detailChartTitle">投资流向</div>
+                        <div id="detailChart" class="chart"></div>
+                    </div>
+
+                    <div class="chart-container chart-50">
+                        <div class="chart-header">
+                            <div class="chart-title" id="networkChartTitle">国家间投资关系网络图</div>
+                            <div class="network-controls">
+                                <label>布局算法</label>
+                                <select id="networkLayout">
+                                    <option value="force">力导向布局</option>
+                                    <option value="circular">环形布局</option>
+                                </select>
+                                <label>边的数量</label>
+                                <select id="edgeLimit">
+                                    <option value="0">全部</option>
+                                    <option value="10">10条</option>
+                                    <option value="50">50条</option>
+                                    <option value="100" selected>100条</option>
+                                    <option value="150">150条</option>
+                                    <option value="200">200条</option>
+                                </select>
+                                <label>显示双向</label>
+                                <input type="checkbox" id="showBidirectional" checked>
+                            </div>
+                        </div>
+                        <div id="networkChart" class="chart"></div>
+                    </div>
+                </div>
+
+                <!-- 数据表格 -->
+                <div class="data-table-container">
+                    <div class="table-title">数据详情</div>
+                    <div id="dataTable" class="data-table"></div>
+                </div>
+            </div>
+
+            <!-- 右侧列（双时间点对比模式时显示） -->
+            <div class="right-column" id="rightColumn" style="display: none;">
+                <!-- 第一行：整体视图、投资分布 -->
+                <div class="top-charts-row">
+                    <div class="chart-container chart-50">
+                        <div class="chart-title" id="statChartTitle2">整体视图</div>
+                        <div id="statChart2" class="chart"></div>
+                    </div>
+
+                    <div class="chart-container chart-50">
+                        <div class="chart-header">
+                            <div class="chart-title" id="mainChartTitle2">投资分布</div>
+                            <div class="chart-type-selector">
+                                <label>图表类型</label>
+                                <select id="chartType2">
+                                    <option value="bar">柱状图</option>
+                                    <option value="pie">饼图</option>
+                                    <option value="map">地图</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="mainChart2" class="chart"></div>
+                    </div>
+                </div>
+
+                <!-- 第二行：投资流向和投资关系网络 -->
+                <div class="middle-charts-row">
+                    <div class="chart-container chart-50">
+                        <div class="chart-title" id="detailChartTitle2">投资流向</div>
+                        <div id="detailChart2" class="chart"></div>
+                    </div>
+
+                    <div class="chart-container chart-50">
+                        <div class="chart-header">
+                            <div class="chart-title" id="networkChartTitle2">国家间投资关系网络图</div>
+                            <div class="network-controls">
+                                <label>布局算法</label>
+                                <select id="networkLayout2">
+                                    <option value="force">力导向布局</option>
+                                    <option value="circular">环形布局</option>
+                                </select>
+                                <label>边的数量</label>
+                                <select id="edgeLimit2">
+                                    <option value="0">全部</option>
+                                    <option value="10">10条</option>
+                                    <option value="50">50条</option>
+                                    <option value="100" selected>100条</option>
+                                    <option value="150">150条</option>
+                                    <option value="200">200条</option>
+                                </select>
+                                <label>显示双向</label>
+                                <input type="checkbox" id="showBidirectional2" checked>
+                            </div>
+                        </div>
+                        <div id="networkChart2" class="chart"></div>
+                    </div>
+                </div>
+
+                <!-- 数据表格 -->
+                <div class="data-table-container">
+                    <div class="table-title">数据详情</div>
+                    <div id="dataTable2" class="data-table"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Bilateral/jquery.min.js"></script>
+    <script src="../Bilateral/js/echarts.min.js"></script>
+    <script src="../Bilateral/js/worldZH.json"></script>
+    <script src="visualization.js"></script>
+</body>
+
+</html>

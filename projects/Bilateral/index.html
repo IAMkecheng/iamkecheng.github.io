@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <!--    设置地图容器，需要设置宽高样式-->
+  <div class="map-container">
+    <div class="toolbar-panel">
+      <div class="controls">
+        <div class="control-group">
+          <label for="sheetSelect">数据类型</label>
+          <select id="sheetSelect">
+            <option value="inflow-M">流入 (Inflow)</option>
+            <option value="outflow-M">流出 (Outflow)</option>
+            <option value="instock-M">存量流入 (Instock)</option>
+            <option value="outstock-M">存量流出 (Outstock)</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="yearSelect">年份</label>
+          <select id="yearSelect">
+            <!-- 年份选项将通过JavaScript动态生成 -->
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="countrySearch">国家搜索</label>
+          <input type="text" id="countrySearch" placeholder="输入中文或英文国家名（留空显示全部）" value="中国">
+        </div>
+        <div class="control-group">
+          <label for="streamGraphTopN">流图显示前N个国家</label>
+          <input type="number" id="streamGraphTopN" min="1" max="50" value="10" placeholder="默认10">
+        </div>
+        <div class="control-group">
+          <label>自动播放</label>
+          <div class="play-controls">
+            <button id="playPauseBtn" class="play-btn">播放</button>
+            <div class="play-controls-row">
+              <div class="speed-control">
+                <label>速度:</label>
+                <input type="range" id="speedSlider" min="0.5" max="3" step="0.5" value="1">
+                <span class="speed-value" id="speedValue">1x</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="middle-panel">
+      <div class="map-wrapper">
+        <div id="main" class="map"></div>
+        <div class="year-display" id="yearDisplay">1995</div>
+        <button class="reset-btn" id="resetBtn">重置视图</button>
+      </div>
+      <div class="streamgraph-container">
+        <div class="streamgraph-title">资金流量随年份变化趋势图</div>
+        <div id="streamGraph"></div>
+      </div>
+    </div>
+    <div class="right-panel">
+      <div class="wordcloud-container">
+        <div class="wordcloud-title">年度词云</div>
+        <div id="wordCloud"></div>
+      </div>
+      <div class="pie-container">
+        <div class="pie-title">国家资金流量占比情况（前10名）</div>
+        <div id="pieChart"></div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/echarts-wordcloud.min.js"></script>
+<script src="index.js"></script>
+
+</html>
