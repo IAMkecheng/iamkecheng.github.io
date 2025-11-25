@@ -41,15 +41,15 @@ body .info-unit h3 {
  * ------------------------------------------------- */
 .container {
   position: relative;
-  max-width: calc(20rem + 2rem + 1200px);
+  max-width: calc(15.875rem + 1rem + 1200px);
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 1rem;
   box-sizing: border-box;
 }
 
 .container .side {
   position: absolute;
-  width: 20rem;
+  width: 15.875rem;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 5px 20px #bbb;
@@ -145,22 +145,33 @@ body .info-unit h3 {
 
 .container .side .info-unit ul li label {
   display: inline-block;
-  width: 35%;
+  width: 30%;
+}
+
+.container .side .contact.info-unit ul li label {
+  width: 15%;
 }
 
 .container .side .info-unit ul li span {
   display: inline-block;
   vertical-align: top;
-  width: 60%;
+  width: 65%;
+}
+
+.container .side .info-unit ul li a {
+  display: inline-block;
+  word-break: break-all;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .container .main {
   position: relative;
-  margin-left: 22rem;
+  margin-left: 16.875rem;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 5px 20px #bbb;
-  width: calc(100% - 22rem);
+  width: calc(100% - 16.875rem);
   max-width: 1200px;
   box-sizing: border-box;
   padding: 1rem;
