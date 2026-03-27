@@ -1,6 +1,25 @@
 // 论文数据
 const papersData = [
     {
+        "year": 2026,
+        "title": "Contrastive Learning for Large-scale Color-Name Dataset: Tackling Sparsity with Negative Sampling",
+        "venue": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "venueType": "会议",
+        "venueLevel": "CCF A类会议",
+        "venueFullName": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "authorPosition": "一作",
+        "doi": "",
+        "doiUrl": "",
+        "demoUrl": " http://47.254.80.181:5000/",
+        "demoUrlText": "在线网站",
+        "techStack": "Python, Javascript, D3, jQuery",
+        "description": "提出了针对大规模颜色-名称数据集的对比学习方法，通过负采样技术解决了数据稀疏性问题，提升了颜色-名称对齐的准确性。",
+        "volume": null,
+        "issue": null,
+        "pages": null,
+        "publicationDate": null
+    },
+    {
         "year": 2020,
         "title": "Palettailor: Discriminable Colorization for Categorical Data",
         "venue": "IEEE Transactions on Visualization and Computer Graphics",
