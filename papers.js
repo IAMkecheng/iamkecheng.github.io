@@ -2,14 +2,34 @@
 const papersData = [
     {
         "year": 2026,
+        "title": "Flint: A Semantic-driven Data Visualization Intermediate Language",
+        "venue": "IEEE VIS 2026",
+        "venueType": "会议",
+        "venueLevel": "CCF A类会议",
+        "venueFullName": "IEEE VIS 2026",
+        "authorPosition": "二作",
+        "doi": "",
+        "doiUrl": "",
+        "demoUrl": "https://microsoft.github.io/flint-chart/",
+        "demoUrlText": "在线网站",
+        "techStack": "TypeScript, Python, JavaScript",
+        "description": "一种语义驱动的数据可视化中间语言。",
+        "volume": null,
+        "issue": null,
+        "pages": null,
+        "publicationDate": "2026-07",
+        "citation": "Yunhai Wang, Kecheng Lu, Junhao Chen, Alper Sarikaya, Chenglong Wang. \"Flint: A Semantic-driven Data Visualization Intermediate Language.\" IEEE VIS 2026."
+    },
+    {
+        "year": 2026,
         "title": "Contrastive Learning for Large-scale Color-Name Dataset: Tackling Sparsity with Negative Sampling",
         "venue": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
         "venueFullName": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
         "authorPosition": "一作",
-        "doi": "",
-        "doiUrl": "",
+        "doi": "10.1145/3772318.3791278",
+        "doiUrl": "https://dl.acm.org/doi/10.1145/3772318.3791278",
         "demoUrl": " http://47.254.80.181:5000/",
         "demoUrlText": "在线网站",
         "techStack": "Python, Javascript, D3, jQuery",
@@ -17,7 +37,8 @@ const papersData = [
         "volume": null,
         "issue": null,
         "pages": null,
-        "publicationDate": null
+        "publicationDate": "2026-04-13",
+        "citation": "Kecheng Lu, Yue He, and Yunhai Wang. \"Contrastive Learning for Large-scale Color-Name Dataset: Tackling Sparsity with Negative Sampling.\" Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems. 2026."
     },
     {
         "year": 2020,
@@ -36,7 +57,8 @@ const papersData = [
         "volume": 27,
         "issue": 2,
         "pages": "475-484",
-        "publicationDate": "Feb. 2021"
+        "publicationDate": "2021-02",
+        "citation": "Kecheng Lu, Mi Feng, Xin Chen, Michael Sedlmair, Oliver Deussen, Dani Lischinski, Zhanglin Cheng, and Yunhai Wang. \"Palettailor: Discriminable colorization for categorical data.\" IEEE Transactions on Visualization and Computer Graphics 27.2 (2020): 475-484."
     },
     {
         "year": 2023,
@@ -52,7 +74,9 @@ const papersData = [
         "demoUrlText": "在线网站",
         "techStack": "Javascript，D3，jQuery",
         "description": "在Palettailor的基础上，我们进一步提出了适用于交互式操作的保持上下文信息的自动化调色板生成方法。该方法可以自动为给定数据生成两套具有高区分度的调色板，在交互过程中实时组合颜色以高亮不同部分，并保证剩余部分的区分度，在交互过程中为用户提供了更多操作指引，增强了数据探索效率。适用于多类散点图、折线图和直方图。",
-        "pages": "1-15"
+        "pages": "1-15",
+        "publicationDate": "2023-04-19",
+        "citation": "Kecheng Lu, Khairi Reda, Oliver Deussen, Yunhai Wang. \"Interactive context-preserving color highlighting for multiclass scatterplots.\" Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems. 2023."
     },
     {
         "year": 2024,
@@ -71,7 +95,8 @@ const papersData = [
         "volume": 31,
         "issue": 9,
         "pages": "6617 - 6632",
-        "publicationDate": "Dec. 2024"
+        "publicationDate": "2024-12-30",
+        "citation": "Kecheng Lu, Lihang Zhu, Yunhai Wang, Qiong Zeng, Weitao Song, Khairi Reda. \"Color-Name Aware Optimization to Enhance the Perception of Transparent Overlapped Charts.\" IEEE Transactions on Visualization and Computer Graphics 31.9 (2024): 6617-6632."
     },
     {
         "year": 2025,
@@ -90,7 +115,8 @@ const papersData = [
         "volume": 132,
         "issue": null,
         "pages": null,
-        "publicationDate": "Aug. 2025"
+        "publicationDate": "2025-08-09",
+        "citation": "Kecheng Lu, Xubin Chai, Yi Hou, Yunhai Wang. \"C3-palette: Co-saliency based colorization for comparing categorical visualizations.\" Computers & Graphics 132 (2025): 104379."
     },
     {
         "year": 2019,
@@ -108,7 +134,9 @@ const papersData = [
         "description": "提出了适用于大规模时序体数据的统一框架，包含了关键帧提取、特征追踪和绘制参数自动生成等功能，核心是利用了GPU加速的BlockMatch算法，这是扩展自图形领域著名的PatchMatch算法，通过计算不同帧数据间密集的对应关系，实现细粒度的可视化参数自动生成。",
         "volume": 3,
         "issue": 4,
-        "pages": "157-165"
+        "pages": "157-165",
+        "publicationDate": "2019-10-06",
+        "citation": "Kecheng Lu, Chaoli Wang, Keqin Wu, Minglun Gong, Yunhai Wang. \"A unified framework for exploring time-varying volumetric data based on block correspondence.\" Visual Informatics 3.4 (2019): 157-165."
     },
     {
         "year": 2022,
@@ -127,7 +155,8 @@ const papersData = [
         "volume": 9,
         "issue": 3,
         "pages": "513-529",
-        "publicationDate": "2023"
+        "publicationDate": "2023-09",
+        "citation": "Yang Yang, Kecheng Lu, Yu Wu, Yunhai Wang, Yi Cao. \"Correlation-aware probabilistic data summarization for large-scale multi-block scientific data visualization.\" Computational Visual Media 9.3 (2023): 513-529."
     },
     {
         "year": 2024,
@@ -144,12 +173,14 @@ const papersData = [
         "techStack": null,
         "description": "提出了适用于创建通用型颜色映射的混合式方法，通过结合用户偏好和数据特征，生成符合用户需求的颜色映射。",
         "articleNo": "145",
-        "pages": "1 - 17"
+        "pages": "1 - 17",
+        "publicationDate": "2024-05-11",
+        "citation": "Amey Salvi, Kecheng Lu, Michael E. Papka, Yunhai Wang, Khairi Reda. \"Color maker: a mixed-initiative approach to creating accessible color maps.\" Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems. 2024."
     },
     {
         "year": 2025,
         "title": "Seeing Through the Overlap: The Impact of Color and Opacity on Depth Order Perception in Visualization",
-        "venue": "CHI Conference on Human Factors in Computing Systems",
+        "venue": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2025)",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
         "venueFullName": "CHI '25: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
@@ -161,7 +192,9 @@ const papersData = [
         "techStack": null,
         "description": null,
         "articleNo": "1172",
-        "pages": "1 - 14"
+        "pages": "1 - 14",
+        "publicationDate": "2025-04-25",
+        "citation": "Zhiyuan Meng, Yunpeng Yang, Qiong Zeng, Kecheng Lu, Lin Lu, Changhe Tu, Fumeng Yang, Yunhai Wang. \"Seeing through the overlap: The impact of color and opacity on depth order perception in visualization.\" Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems. 2025."
     },
     {
         "year": 2025,
@@ -180,7 +213,8 @@ const papersData = [
         "volume": 31,
         "issue": 2,
         "pages": "1631-1644",
-        "publicationDate": "Feb. 2025"
+        "publicationDate": "2024-11-11",
+        "citation": "Xin Chen, Yunhai Wang, Huaiwei Bao, Kecheng Lu, Jaemin Jo, Chi-Wing Fu. \"Visualization-driven illumination for density plots.\" IEEE Transactions on Visualization and Computer Graphics 31.2 (2024): 1631-1644."
     },
     {
         "year": 2025,
@@ -199,7 +233,8 @@ const papersData = [
         "volume": 127,
         "issue": null,
         "pages": null,
-        "publicationDate": "Feb. 2025"
+        "publicationDate": "2025-02-09",
+        "citation": "Huaiwei Bao, Xin Chen, Kecheng Lu, Chi-Wing Fu, Jean-Daniel Fekete, Yunhai Wang. \"Bi-Scale density-plot enhancement based on variance-aware filter.\" Computers & Graphics 127 (2025): 104180."
     },
     {
         "year": 2019,
@@ -218,7 +253,8 @@ const papersData = [
         "volume": 23,
         "issue": 3,
         "pages": "523-537",
-        "publicationDate": "2020"
+        "publicationDate": "2020-03-04",
+        "citation": "Tong Ge, Yonghua Lu, Kecheng Lu, Yunhai Wang, Xin Liu, Zhanglin Cheng, Yi Chen, Oliver Deussen & Baoquan Chen. \"VEGA: visual comparison of phylogenetic trees for evolutionary genome analysis (ChinaVis 2019) T. Ge et al.\" Journal of Visualization 23.3 (2020): 523-537."
     },
     {
         "year": 2017,
@@ -237,7 +273,8 @@ const papersData = [
         "volume": 24,
         "issue": 1,
         "pages": "489-499",
-        "publicationDate": "Jan. 2018"
+        "publicationDate": "2017-08-29",
+        "citation": "Yunhai Wang, Yanyan Wang, Yinqi Sun, Lifeng Zhu, Kecheng Lu, Chi-Wing Fu. \"Revisiting stress majorization as a unified framework for interactive constrained graph visualization.\" IEEE transactions on visualization and computer graphics 24.1 (2017): 489-499."
     }
 ];
 
