@@ -84,17 +84,21 @@ function loadPapers() {
 			contentUl.appendChild(authorsLi);
 		}
 
-		const venue = paper.venue || paper.venueFullName || '';
-		if (venue || paper.venueLevel) {
+		const venueFullName = paper.venueFullName || paper.venue || '';
+		const venue = paper.venue || '';
+		if (venueFullName || paper.venueLevel) {
 			const venueLi = document.createElement('li');
+			const parts = [];
+			if (venue) parts.push(venue);
 			if (paper.venueLevel) {
-				let levelHtml = paper.venueLevel.replace(
-					/(CCF A类(?:会议|期刊))/g,
-					'<b>$1</b>'
+				parts.push(
+					paper.venueLevel.replace(/(CCF A类(?:会议|期刊))/g, '<b>$1</b>')
 				);
-				venueLi.innerHTML = `${venue}（${levelHtml}）`;
+			}
+			if (parts.length > 0) {
+				venueLi.innerHTML = `${venueFullName} (${parts.join(', ')})`;
 			} else {
-				venueLi.textContent = venue;
+				venueLi.textContent = venueFullName;
 			}
 			contentUl.appendChild(venueLi);
 		}

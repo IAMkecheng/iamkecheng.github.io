@@ -23,10 +23,10 @@ const papersData = [
     {
         "year": 2026,
         "title": "Contrastive Learning for Large-scale Color-Name Dataset: Tackling Sparsity with Negative Sampling",
-        "venue": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "venue": "CHI 2026",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
-        "venueFullName": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2026)",
+        "venueFullName": "ACM Conference on Human Factors in Computing Systems",
         "authorPosition": "一作",
         "doi": "10.1145/3772318.3791278",
         "doiUrl": "https://dl.acm.org/doi/10.1145/3772318.3791278",
@@ -43,7 +43,7 @@ const papersData = [
     {
         "year": 2020,
         "title": "Palettailor: Discriminable Colorization for Categorical Data",
-        "venue": "IEEE Transactions on Visualization and Computer Graphics",
+        "venue": "TVCG 2020",
         "venueType": "期刊",
         "venueLevel": "CCF A类期刊",
         "venueFullName": "IEEE Transactions on Visualization and Computer Graphics (Proc. InfoVis 2020)",
@@ -63,10 +63,10 @@ const papersData = [
     {
         "year": 2023,
         "title": "Interactive Context-preserving Color Highlighting for Multiclass Scatterplots",
-        "venue": "CHI Conference on Human Factors in Computing Systems",
+        "venue": "CHI 2023",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
-        "venueFullName": "Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems",
+        "venueFullName": "ACM Conference on Human Factors in Computing Systems",
         "authorPosition": "一作",
         "doi": "10.1145/3544548.3580734",
         "doiUrl": "https://doi.org/10.1145/3544548.3580734",
@@ -81,7 +81,7 @@ const papersData = [
     {
         "year": 2024,
         "title": "Color-Name Aware Optimization to Enhance the Perception of Transparent Overlapped Charts",
-        "venue": "IEEE Transactions on Visualization and Computer Graphics",
+        "venue": "TVCG 2024",
         "venueType": "期刊",
         "venueLevel": "CCF A类期刊",
         "venueFullName": "IEEE Transactions on Visualization and Computer Graphics",
@@ -101,7 +101,7 @@ const papersData = [
     {
         "year": 2025,
         "title": "C3-palette: Co-saliency based colorization for comparing categorical visualizations",
-        "venue": "Computers & Graphics",
+        "venue": "C&G 2025",
         "venueType": "期刊",
         "venueLevel": "CCF C类期刊，SCIE",
         "venueFullName": "Computers & Graphics",
@@ -121,7 +121,7 @@ const papersData = [
     {
         "year": 2019,
         "title": "A unified framework for exploring time-varying volumetric data based on block correspondence",
-        "venue": "Visual Informatics",
+        "venue": "VI 2019",
         "venueType": "期刊",
         "venueLevel": "ESCI",
         "venueFullName": "Visual Informatics",
@@ -141,7 +141,7 @@ const papersData = [
     {
         "year": 2022,
         "title": "Correlation-aware Probabilistic Data Summarization for Large-scale Multi-block Scientific Data Visualization",
-        "venue": "Computational Visual Media",
+        "venue": "CVM 2022",
         "venueType": "会议",
         "venueLevel": "CCF C类会议，SCIE",
         "venueFullName": "Computational Visual Media",
@@ -161,10 +161,10 @@ const papersData = [
     {
         "year": 2024,
         "title": "Color Maker: a Mixed-Initiative Approach to Creating Accessible ColorMaps",
-        "venue": "CHI Conference on Human Factors in Computing Systems",
+        "venue": "CHI 2024",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
-        "venueFullName": "CHI '24: Proceedings of the CHI Conference on Human Factors in Computing Systems",
+        "venueFullName": "ACM Conference on Human Factors in Computing Systems",
         "authorPosition": "二作",
         "doi": "10.1145/3613904.3642265",
         "doiUrl": "https://doi.org/10.1145/3613904.3642265",
@@ -180,10 +180,10 @@ const papersData = [
     {
         "year": 2025,
         "title": "Seeing Through the Overlap: The Impact of Color and Opacity on Depth Order Perception in Visualization",
-        "venue": "The ACM SIGCHI Conference on Human Factors in Computing Systems (CHI 2025)",
+        "venue": "CHI 2025",
         "venueType": "会议",
         "venueLevel": "CCF A类会议",
-        "venueFullName": "CHI '25: Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems",
+        "venueFullName": "ACM Conference on Human Factors in Computing Systems",
         "authorPosition": "四作",
         "doi": "10.1145/3706598.3714070",
         "doiUrl": "https://doi.org/10.1145/3706598.3714070",
@@ -199,7 +199,7 @@ const papersData = [
     {
         "year": 2025,
         "title": "Visualization-Driven Illumination for Density Plots",
-        "venue": "IEEE Transactions on Visualization and Computer Graphics",
+        "venue": "TVCG 2025",
         "venueType": "期刊",
         "venueLevel": "CCF A类期刊",
         "venueFullName": "IEEE Transactions on Visualization and Computer Graphics",
@@ -219,7 +219,7 @@ const papersData = [
     {
         "year": 2025,
         "title": "Bi-Scale density-plot enhancement based on variance-aware filter",
-        "venue": "Computers & Graphics",
+        "venue": "C&G 2025",
         "venueType": "期刊",
         "venueLevel": "CCF C类期刊，SCIE",
         "venueFullName": "Computers & Graphics",
@@ -239,7 +239,7 @@ const papersData = [
     {
         "year": 2019,
         "title": "VEGA: visual comparison of phylogenetic trees for evolutionary genome analysis",
-        "venue": "Journal of Visualization",
+        "venue": "JoV 2019",
         "venueType": "期刊",
         "venueLevel": "SCIE",
         "venueFullName": "Journal of Visualization",
@@ -259,7 +259,7 @@ const papersData = [
     {
         "year": 2017,
         "title": "Revisiting Stress Majorization as a Unified Framework for Interactive Constrained Graph Visualization",
-        "venue": "IEEE Transactions on Visualization and Computer Graphics",
+        "venue": "TVCG 2017",
         "venueType": "期刊",
         "venueLevel": "CCF A类期刊",
         "venueFullName": "IEEE Transactions on Visualization and Computer Graphics (Proc. InfoVis 2017)",
