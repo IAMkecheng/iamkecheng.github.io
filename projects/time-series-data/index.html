@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变压器运行数据可视分析系统</title>
+    <script src="js/echarts.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="header">
+        <!-- <h1>变压器运行数据可视分析系统</h1> -->
+        <!-- <p>实时监控变压器运行状态，支持多维度数据分析</p> -->
+    </div>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="analysisMode">分析模式</label>
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="analysisMode" value="single" checked onchange="toggleAnalysisMode()">
+                    <span>单时间分析</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="analysisMode" value="comparison" onchange="toggleAnalysisMode()">
+                    <span>同期对比</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="deviceSelect">设备选择</label>
+            <select id="deviceSelect">
+                <option value="">全部设备</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="timeGranularity">时间粒度</label>
+            <select id="timeGranularity">
+                <option value="hour">小时</option>
+                <option value="day" selected>天</option>
+                <option value="week">星期</option>
+                <option value="month">月</option>
+                <option value="quarter">季度</option>
+            </select>
+        </div>
+
+        <!-- 单时间分析模式 -->
+        <div id="singleTimeControls" class="control-group">
+            <label for="yearSelect">年份选择</label>
+            <select id="yearSelect">
+                <option value="2024">2024年</option>
+                <option value="2025">2025年</option>
+            </select>
+        </div>
+
+        <!-- 同期对比模式 -->
+        <div id="comparisonControls" class="control-group" style="display: none;">
+            <label>对比模式</label>
+            <div class="comparison-info">
+                <span>第一列显示当前单时间分析数据，点击右侧"+"按钮添加对比列</span>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <button onclick="refreshData()" class="refresh-btn">刷新数据</button>
+        </div>
+
+        <div class="control-group control-group-right">
+            <a href="tools/fta/index.html" class="tool-link" target="_blank" rel="noopener">故障树编辑器</a>
+        </div>
+    </div>
+
+
+
+    <!-- 单时间分析模式 -->
+    <div id="singleAnalysisPanels" class="panels">
+        <!-- 运行数据面板 -->
+        <div class="panel">
+            <div class="panel-header">
+                运行数据
+                <div class="chart-type-switcher">
+                    <select id="operationChartType" class="chart-type-select">
+                        <option value="line">折线图</option>
+                        <option value="bar">柱状图</option>
+                        <option value="area">河流图</option>
+                        <option value="pie">饼图</option>
+                    </select>
+                    <select id="operationDataMode" class="data-mode-select" style="display: none;">
+                        <option value="relative">相对变化率</option>
+                        <option value="original">原始数据</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="operationChart" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 状态数据面板 -->
+        <div class="panel">
+            <div class="panel-header">
+                状态数据
+                <div class="chart-type-switcher">
+                    <select id="statusChartType" class="chart-type-select">
+                        <option value="line">折线图</option>
+                        <option value="histogram">直方图</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="statusChart" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 油色谱数据面板 -->
+        <div class="panel">
+            <div class="panel-header">
+                油色谱数据
+                <div class="chart-type-switcher">
+                    <select id="chromatographyChartType" class="chart-type-select">
+                        <option value="line">折线图</option>
+                        <option value="bar">柱状图</option>
+                        <option value="area">河流图</option>
+                        <option value="pie">饼图</option>
+                    </select>
+                    <select id="chromatographyDataMode" class="data-mode-select" style="display: none;">
+                        <option value="relative">相对变化率</option>
+                        <option value="original">原始数据</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="chromatographyChart" class="chart-container">
+                    <div class="loading">暂无数据</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 天气和环境数据面板 -->
+        <div class="panel">
+            <div class="panel-header">天气和环境数据</div>
+            <div class="panel-content">
+                <div id="weatherChart" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 相关性分析面板 -->
+        <div class="panel correlation-panel" style="grid-column: 1 / 2; grid-row: 3 / 5;">
+            <div class="panel-header">相关性分析</div>
+            <div class="panel-content">
+                <div id="correlationMatrix" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 时序预测分析面板 -->
+        <div class="panel" style="grid-column: 2 / 3; grid-row: 3 / 4;">
+            <div class="panel-header">
+                时序预测分析
+                <div class="prediction-controls">
+                    <label for="predictionTypeSelect">预测类型:</label>
+                    <select id="predictionTypeSelect" class="prediction-select">
+                        <option value="oil_temp">油温预测</option>
+                        <option value="oil_level">油位预测</option>
+                        <option value="winding_temp">绕组温度预测</option>
+                        <option value="power">功率预测</option>
+                        <option value="current">电流预测</option>
+                    </select>
+                    <label for="predictionPoints">预测点数:</label>
+                    <select id="predictionPoints" class="prediction-select">
+                        <option value="5">5个点</option>
+                        <option value="10" selected>10个点</option>
+                        <option value="15">15个点</option>
+                        <option value="20">20个点</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="predictionChart" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 异常检测面板 -->
+        <div class="panel" style="grid-column: 2 / 3; grid-row: 4 / 5;">
+            <div class="panel-header">异常检测</div>
+            <div class="panel-content">
+                <div id="anomalyList" class="anomaly-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 运行数据密度图面板 -->
+        <!-- <div class="panel density-panel" style="grid-column: 1 / 3; grid-row: 5 / 6;">
+            <div class="panel-header">
+                运行数据密度分析
+                <div class="chart-type-switcher">
+                    <select id="densityChartType" class="chart-type-select">
+                        <option value="line">折线图</option>
+                        <option value="density">密度图</option>
+                        <option value="histogram">直方图</option>
+                    </select>
+                    <select id="densityDataType" class="data-mode-select">
+                        <option value="current">电流密度</option>
+                        <option value="power">功率密度</option>
+                    </select>
+                </div>
+            </div>
+            <div class="panel-content">
+                <div id="densityChart" class="chart-container">
+                    <div class="loading">加载中...</div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- 同期对比模式 -->
+    <div id="comparisonAnalysisPanels" style="display: none;">
+        <div id="comparisonLayout" class="comparison-layout">
+            <!-- 第一列：当前单时间分析数据 -->
+            <div class="comparison-column" id="currentDataColumn">
+                <div class="comparison-column-header">
+                    <div class="column-title">当前数据</div>
+                    <div class="time-range-selector">
+                        <div class="time-range-item">
+                            <label>开始时间:</label>
+                            <input type="datetime-local" id="currentStartTime" onchange="updateCurrentData()"
+                                value="2024-01-01T00:00:00" step="1">
+                        </div>
+                        <div class="time-range-item">
+                            <label>结束时间:</label>
+                            <input type="datetime-local" id="currentEndTime" onchange="updateCurrentData()"
+                                value="2024-12-31T23:59:59" step="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-panels">
+                    <!-- 运行数据面板 -->
+                    <div class="comparison-panel">
+                        <div class="panel-header">
+                            运行数据
+                            <div class="chart-type-switcher">
+                                <select id="currentOperationChartType" class="chart-type-select">
+                                    <option value="line">折线图</option>
+                                    <option value="bar">柱状图</option>
+                                    <option value="area">河流图</option>
+                                    <option value="pie">饼图</option>
+                                </select>
+                                <select id="currentOperationDataMode" class="data-mode-select" style="display: none;">
+                                    <option value="relative">相对变化率</option>
+                                    <option value="original">原始数据</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentOperationChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 状态数据面板 -->
+                    <div class="comparison-panel">
+                        <div class="panel-header">
+                            状态数据
+                            <div class="chart-type-switcher">
+                                <select id="currentStatusChartType" class="chart-type-select">
+                                    <option value="line">折线图</option>
+                                    <option value="histogram">直方图</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentStatusChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 油色谱数据面板 -->
+                    <div class="comparison-panel">
+                        <div class="panel-header">
+                            油色谱数据
+                            <div class="chart-type-switcher">
+                                <select id="currentChromatographyChartType" class="chart-type-select">
+                                    <option value="line">折线图</option>
+                                    <option value="bar">柱状图</option>
+                                    <option value="area">河流图</option>
+                                    <option value="pie">饼图</option>
+                                </select>
+                                <select id="currentChromatographyDataMode" class="data-mode-select"
+                                    style="display: none;">
+                                    <option value="relative">相对变化率</option>
+                                    <option value="original">原始数据</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentChromatographyChart">
+                                <div class="loading">暂无数据</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 天气和环境数据面板 -->
+                    <div class="comparison-panel">
+                        <div class="panel-header">天气和环境数据</div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentWeatherChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 相关性分析面板 -->
+                    <div class="comparison-panel correlation-panel">
+                        <div class="panel-header">相关性分析</div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentCorrelationChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 时序预测分析面板 -->
+                    <div class="comparison-panel prediction-panel">
+                        <div class="panel-header">时序预测分析</div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentPredictionChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 异常检测面板 -->
+                    <div class="comparison-panel anomaly-panel">
+                        <div class="panel-header">异常检测</div>
+                        <div class="panel-content">
+                            <div class="anomaly-container" id="currentAnomalyList">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 运行数据密度图面板 -->
+                    <!-- <div class="comparison-panel density-panel">
+                        <div class="panel-header">
+                            运行数据密度分析
+                            <div class="chart-type-switcher">
+                                <select id="currentDensityChartType" class="chart-type-select">
+                                    <option value="line">折线图</option>
+                                    <option value="density">密度图</option>
+                                    <option value="histogram">直方图</option>
+                                </select>
+                                <select id="currentDensityDataType" class="data-mode-select">
+                                    <option value="current">电流密度</option>
+                                    <option value="power">功率密度</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="chart-container" id="currentDensityChart">
+                                <div class="loading">加载中...</div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- 添加列按钮 -->
+            <div class="add-column-btn" onclick="addComparisonColumn()">
+                <div class="add-btn-content">
+                    <span class="add-icon">+</span>
+                    <span class="add-text">添加对比列</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/api.js"></script>
+<script src="index.js"></script>
+
+</html>
